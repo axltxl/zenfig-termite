@@ -1,0 +1,88 @@
+################################################
+# Jinja2 template for termite configuration file
+# ---------------------------
+# Author: Alejandro Ricoveri <axltxl.github.io>
+# vim: ft=jinja cms=#%s
+################################################
+
+# Boolean values have to be converted
+# to termite-friendly equivalents
+% macro bool2str(var)
+    {{- var|string|lower }}
+%- endmacro
+
+# Get RGBA format for termite
+% macro get_bg_rgba(hex_color)
+    {%- set rgb = hex_color|hex2rgb -%}
+    rgba({{ rgb[0] }},{{ rgb[1] }},{{ rgb[2] }},{{ termite_color_background_alpha }})
+%- endmacro
+
+#################
+# Options section
+#################
+[options]
+scroll_on_output = {{ bool2str(termite_scroll_on_output) }}
+scroll_on_keystroke = {{ bool2str(termite_scroll_on_keystroke)}}
+audible_bell = {{ bool2str(termite_audible_bell) }}
+mouse_autohide = {{ bool2str(termite_mouse_autohide) }}
+allow_bold = {{ bool2str(termite_allow_bold) }}
+dynamic_title = {{ bool2str(termite_dynamic_title) }}
+urgent_on_bell = {{ bool2str(termite_urgent_on_bell) }}
+clickable_url = {{ bool2str(termite_clickable_url) }}
+font = {{ termite_font }} {{ termite_font_size }}
+browser = {{ termite_browser }}
+scrollback_lines = {{
+    termite_scrollback_lines if termite_scrollback_lines is number else 10000
+}}
+search_wrap = {{ bool2str(termite_search_wrap) }}
+
+#- "system", "on" or "off"
+cursor_blink = {{
+    termite_cursor_blink if termite_cursor_blink in ['off','on','system'] else 'off'
+}}
+
+# "block", "underline" or "ibeam"
+cursor_shape = {{
+    termite_cursor_shape if termite_cursor_shape in ['block','underline','ibeam'] else 'block'
+}}
+
+#- set size hints for the window
+size_hints = {{ bool2str(termite_size_hints) }}
+
+#- Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = {{ bool2str(termite_filter_unmatched_urls) }}
+
+#- emit escape sequences for other keys modified by Control
+modify_other_keys = {{ bool2str(termite_modify_other_keys) }}
+
+#-############################
+#- Colors section
+#-############################
+[colors]
+cursor          = {{ termite_color_cursor }}
+foreground      = {{ termite_color_foreground }}
+foreground_bold = {{ termite_color_foreground_bold }}
+background      = {{ get_bg_rgba(termite_color_background) }}
+highlight       = {{ termite_highlight }}
+color0          = {{ termite_color0 }}
+color1          = {{ termite_color1 }}
+color2          = {{ termite_color2 }}
+color3          = {{ termite_color3 }}
+color4          = {{ termite_color4 }}
+color5          = {{ termite_color5 }}
+color6          = {{ termite_color6 }}
+color7          = {{ termite_color7 }}
+color8          = {{ termite_color8 }}
+color9          = {{ termite_color9 }}
+color10         = {{ termite_color10 }}
+color11         = {{ termite_color11 }}
+color12         = {{ termite_color12 }}
+color13         = {{ termite_color13 }}
+color14         = {{ termite_color14 }}
+color15         = {{ termite_color15 }}
+color16         = {{ termite_color16 }}
+color17         = {{ termite_color17 }}
+color18         = {{ termite_color18 }}
+color19         = {{ termite_color19 }}
+color20         = {{ termite_color20 }}
+color21         = {{ termite_color21 }}
