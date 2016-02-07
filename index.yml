@@ -1,0 +1,13 @@
+---
+################################
+# Prototype index file
+# meant to be used by zenfig 0.3
+################################
+author: Alejandro Ricoveri
+name: termite
+description: blablabla
+version: 0.1.0
+templates:
+    base:
+        output_file: .config/termite/config
+
