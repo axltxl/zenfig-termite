@@ -8,6 +8,6 @@ name: termite
 description: blablabla
 version: 0.1.0
 templates:
-    base:
+    config:
         output_file: .config/termite/config
 

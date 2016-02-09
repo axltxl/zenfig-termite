@@ -5,17 +5,8 @@
 # vim: ft=jinja cms=#%s
 ################################################
 
-# Boolean values have to be converted
-# to termite-friendly equivalents
-% macro bool2str(var)
-    {{- var|string|lower }}
-%- endmacro
-
-# Get RGBA format for termite
-% macro get_bg_rgba(hex_color)
-    {%- set rgb = hex_color|hex2rgb -%}
-    rgba({{ rgb[0] }},{{ rgb[1] }},{{ rgb[2] }},{{ termite_color_background_alpha }})
-%- endmacro
+# Utilities
+% from 'termite.j2' import bool2str, get_bg_rgba
 
 #################
 # Options section
@@ -62,7 +53,7 @@ modify_other_keys = {{ bool2str(termite_modify_other_keys) }}
 cursor          = {{ termite_color_cursor }}
 foreground      = {{ termite_color_foreground }}
 foreground_bold = {{ termite_color_foreground_bold }}
-background      = {{ get_bg_rgba(termite_color_background) }}
+background      = {{ get_bg_rgba(termite_color_background, termite_color_background_alpha) }}
 highlight       = {{ termite_highlight }}
 color0          = {{ termite_color0 }}
 color1          = {{ termite_color1 }}
