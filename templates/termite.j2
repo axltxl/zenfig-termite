@@ -1,0 +1,19 @@
+################################################
+# Utility functions for termite configuration file
+# ---------------------------
+# Author: Alejandro Ricoveri <axltxl.github.io>
+# vim: ft=jinja cms=#%s
+################################################
+
+# Boolean values have to be converted
+# to termite-friendly equivalents
+% macro bool2str(var)
+    {{- var|string|lower }}
+%- endmacro
+
+# Get RGBA format for termite
+% macro get_bg_rgba(hex_color, alpha)
+    {%- set rgb = hex_color|hex2rgb -%}
+    rgba({{ rgb[0] }},{{ rgb[1] }},{{ rgb[2] }},{{ alpha }})
+%- endmacro
+

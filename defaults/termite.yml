@@ -58,11 +58,11 @@ termite_color20: '{{ @term_color20|norm_hex }}'
 termite_color21: '{{ @term_color21|norm_hex }}'
 
 # Basic terminal colors
-termite_highlight: '{{ @termite_color1 }}'
-termite_color_cursor: '{{ @term_color_cursor }}'
-termite_color_foreground: '{{ @term_color_foreground }}'
-termite_color_foreground_bold: '{{ @term_color_foreground }}'
+termite_highlight: '{{ @termite_color1|norm_hex }}'
+termite_color_cursor: '{{ @term_color_cursor|norm_hex }}'
+termite_color_foreground: '{{ @term_color_foreground|norm_hex }}'
+termite_color_foreground_bold: '{{ @term_color_foreground|norm_hex }}'
 termite_color_background_alpha: 0.9
-termite_color_background: '{{ @term_color_background }}'
+termite_color_background: '{{ @term_color_background|norm_hex }}'
 
 
