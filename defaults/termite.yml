@@ -5,6 +5,10 @@
 # vim: ft=yaml
 ################################################
 
+# Essentials
+termite_install_prefix: '{{ "%s/.config/termite"|format(@zenfig_install_prefix) }}'
+termite_conf_file: '{{ "%s/config"|format(@termite_install_prefix) }}'
+
 # General
 termite_scroll_on_output: '{{ @term_scroll_on_output }}'
 termite_scroll_on_keystroke: true
@@ -64,5 +68,3 @@ termite_color_foreground: '{{ @term_color_foreground|norm_hex }}'
 termite_color_foreground_bold: '{{ @term_color_foreground|norm_hex }}'
 termite_color_background_alpha: 0.9
 termite_color_background: '{{ @term_color_background|norm_hex }}'
-
-

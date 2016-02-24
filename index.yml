@@ -8,5 +8,5 @@ description: termite configuration
 version: 0.0.1
 templates:
     config:
-        output_file: .config/termite/config
+        output_file: '{{ @termite_conf_file }}'
 
